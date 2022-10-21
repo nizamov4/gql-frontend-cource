@@ -1,3 +1,5 @@
 query availablePets {
-    availablePets
+    allPets {
+    id
+  }
 }
