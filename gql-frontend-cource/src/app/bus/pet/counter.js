@@ -1,14 +1,18 @@
-import React from "react";
+// Core
+import React from 'react';
 
-//hooks
-import { useQueryAvailablePets } from './hooks/useQueryAvailablePets'
+import { useQuery } from '@apollo/client';
+
+
+// Hooks
+import { useQueryAvailablePets } from './hooks/useQueryAvailablePets';
 
 export const Counter = () => {
-    const { loading, error, data } = useQueryAvailablePets();
+  const { loading, error, data } = useQueryAvailablePets();
 
+  console.log(data);
 
-    console.log(data);
-    return (
-        <h1>Counter</h1>
-    )
-}
+  return (
+    <p>Counter</p>
+  )
+};
