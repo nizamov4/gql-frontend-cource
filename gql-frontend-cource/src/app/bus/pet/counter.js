@@ -16,9 +16,7 @@ export const Counter = () => {
         We have a problem: {error.message}
       </p>
     )
-  }
-
-  console.log(data);
+  };
 
   return (
     <p>

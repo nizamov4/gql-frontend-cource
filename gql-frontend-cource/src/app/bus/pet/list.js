@@ -26,7 +26,15 @@ export const List = () => {
             </p>
         ))
 
+       /*  let filterWeight = petsJSX.weight.filter((item, index, arr) => {
+            return item.weight < 10
+        })
+
+        console.log(filterWeight); */
+
+
     return (
+
         <>
         <h1>Pets</h1>
         <div style={{
@@ -35,7 +43,7 @@ export const List = () => {
         {petsJSX}
         </div>
 
-
         </>
     )
+
 }
