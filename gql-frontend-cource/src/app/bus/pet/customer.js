@@ -1,14 +1,27 @@
 // Core
-import React from 'react';
+import React, { useState } from 'react';
+
 
 // Hooks
 import { useQueryAllCustomers } from './hooks/useQueryAllCustomers';
 
 export const Customer = () => {
-    const { loading, error, data} = useQueryAllCustomers();
-    console.log('pets', data);
 
-    if (loading) {
+
+  const { loading, error, pets} = useQueryAllCustomers();
+
+
+
+  const [value, setValue] = useState([useQueryAllCustomers()])
+
+
+
+  const result = value && value.map(key => {
+    return key.pets
+  })
+
+
+    /* if (loading) {
         return  <p>Loading...</p>
       }
       if (error) {
@@ -17,17 +30,22 @@ export const Customer = () => {
             We have a problem: {error.message}
           </p>
         )
-      }
+      } */
 
-    /* const petJSX = pets && pets.map(({username, name, dateCreated})=> (
+      /* const petJSX = pets && pets.map(key => {
+        return key.name
+      })
+      console.log(petJSX); */
+
+   /*  const petJSX = pets && pets.map(({ username, name, dateCreated})=> (
         <p key={username}>
 
-            <span>Name: {name}</span>
+            <span>name: {name}</span>
             <br />
             <span>dateCreated: {dateCreated}</span>
         </p>
     ))
-    console.log('petJSX', petJSX); */
+    console.log(petJSX); */
 
 
     return (
@@ -35,10 +53,7 @@ export const Customer = () => {
         <h2 style={{position: 'absolute', left: '35%', top: '25%'}}>
         AllCustomers:
         </h2>
-        { data }
-        {/* {petJSX}
-        {loaderJSX}
-        {errorJSX} */}
+        {result}
         </>
 
     )
