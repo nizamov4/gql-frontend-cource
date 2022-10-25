@@ -3,6 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 
 // Components
 import { Pet } from './bus/pet';
+import { Customer } from './bus/customer'
 
 // Other
 import { client } from './init/client';
@@ -10,8 +11,8 @@ import { client } from './init/client';
 export const App = () => {
   return (
     <ApolloProvider client={client}>
-      <h1>App</h1>
-      <Pet />
+      <Customer />
+      {/* <Pet /> */}
     </ApolloProvider>
   )
 };
