@@ -1,4 +1,5 @@
 import React from "react";
+import { Login } from '../login'
 
 import { useCustomer } from "./hooks/useCustomer";
 
@@ -26,6 +27,7 @@ export const Customer = () => {
                 </button>
         </h1>
                 {customerJSX}
+                <Login/>
         </>
     )
 }

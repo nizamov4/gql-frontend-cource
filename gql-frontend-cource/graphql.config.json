@@ -1,0 +1,11 @@
+{
+    "name": "irek-nizamovs-team-2@main",
+    "schemaPath": "./schema.json",
+    "extensions": {
+      "endpoints": {
+        "Default GraphQL Endpoint": {
+          "url": "https://funded-pet-library.moonhighway.com/"
+        }
+      }
+    }
+  }
