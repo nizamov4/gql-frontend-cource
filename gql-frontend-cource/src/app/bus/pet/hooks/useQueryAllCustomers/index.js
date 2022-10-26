@@ -6,7 +6,7 @@ const queryAllCustomers = loader('./gql/useQueryAllCustomers.graphql')
 //Queries
 export const useQueryAllCustomers = () => {
 
-    /* const { loading, error, data } =  */;
+    const { loading, error, data } = useQuery(queryAllCustomers);
 
-    return useQuery(queryAllCustomers)/* { loading, error, pets: data && data.allCustomers } */
+    return { loading, error, pets: data && data.allCustomers }
 }
