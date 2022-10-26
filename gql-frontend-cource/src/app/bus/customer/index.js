@@ -1,10 +1,9 @@
 import React from "react";
-import { Login } from '../login'
 
 import { useCustomer } from "./hooks/useCustomer";
 
 export const Customer = () => {
-    const {values, handleChange, save, createdAccount} = useCustomer()
+    const { handleChange, save, createdAccount} = useCustomer()
 
     const customerJSX = createdAccount && (
         <p>
@@ -27,7 +26,7 @@ export const Customer = () => {
                 </button>
         </h1>
                 {customerJSX}
-                <Login/>
+
         </>
     )
 }
