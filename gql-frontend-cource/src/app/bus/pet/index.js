@@ -6,16 +6,18 @@ import { List } from './list';
 import { SpecialList } from './specialList'
 import { Customer } from './customer'
 import { Profile } from './profile'
+import { Zxc } from './zxc'
 
 export const Pet = () => {
   return (
     <>
-      <Profile/>
+      {/* <Profile/> */}
+      <Zxc />
       <h1>Pet</h1>
       {/* <Counter /> */}
-      <List/>
+      {/* <List/>
       <SpecialList/>
-      <Customer/>
+      <Customer/> */}
     </>
   )
 };

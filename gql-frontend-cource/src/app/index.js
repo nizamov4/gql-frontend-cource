@@ -12,9 +12,9 @@ import { client } from './init/client';
 export const App = () => {
   return (
     <ApolloProvider client={client}>
-      {/* <Customer /> */}
-      {/* <Pet /> */}
       <Login />
+      {/* <Customer /> */}
+      <Pet />
     </ApolloProvider>
   )
 };

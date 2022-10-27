@@ -25,7 +25,7 @@ export const Login = () => {
                 <input type="password" placeholder="password" name="password" onChange={handleChange}/>
                 <br />
                 <br />
-                <button type="submit" onClick={logIn}>Login
+                <button type="submit" style={{width: '13.7%'}} onClick={logIn}>Login
                 </button>
         </ul>
         {authCustomerJSX}
