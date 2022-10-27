@@ -16,7 +16,7 @@ export const Customer = () => {
         <h1>
             REGISTRATION
             <br />
-                <input type="text" placeholder="name" name="name" onChange={handleChange}/>
+                 <input type="text" placeholder="name" name="name" onChange={handleChange}/>
                 <br />
                 <input type="text" placeholder="username" name="username" onChange={handleChange}/>
                 <br />

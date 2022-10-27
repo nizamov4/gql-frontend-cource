@@ -5,21 +5,31 @@ import { useCustomerAuth } from './hooks/useCustomerAuth'
 
 
 export const Login = () => {
-    const { handleChange, logIn } = useCustomerAuth()
+    const { handleChange, logIn, authCustomer } = useCustomerAuth()
+
+    const authCustomerJSX = authCustomer && (
+        <>
+        <p>Autorized Customer: {authCustomer.customer.name}</p>
+        <p>Token: {authCustomer.token} </p>
+        </>
+    )
 
     return (
         <>
         <h1>
-            Login
+        ㅤLogin
         </h1>
         <ul>
                 <input type="text" placeholder="username" name="username" onChange={handleChange}/>
                 <br />
+                <br />
                 <input type="password" placeholder="password" name="password" onChange={handleChange}/>
+                <br />
                 <br />
                 <button type="submit" onClick={logIn}>Login
                 </button>
         </ul>
+        {authCustomerJSX}
         </>
     )
 }

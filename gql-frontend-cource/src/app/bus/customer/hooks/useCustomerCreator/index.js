@@ -9,14 +9,14 @@ import { loader } from "graphql.macro"
 const mutationCreateAccount = loader('./gql/mutationCreateAccount.graphql');
 
 export const useCustomerCreator = () => {
-    const [addUser, {data}] = useMutation(mutationCreateAccount)
+  const [addUser, {data}] = useMutation(mutationCreateAccount)
   const {form, handleChange} = useForm({
     name: '',
     username: '',
     password: ''
   });
 
-  const save = () => {
+  const _save = () => {
 
     addUser({
         variables: {
@@ -27,7 +27,7 @@ export const useCustomerCreator = () => {
 
   return {
     handleChange,
-    save,
+    _save,
     createdAccount: data && data.createAccount
   }
 };
