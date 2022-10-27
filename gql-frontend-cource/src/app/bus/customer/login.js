@@ -10,7 +10,6 @@ export const Login = () => {
     const authCustomerJSX = authCustomer && (
         <>
         <p>Autorized Customer: {authCustomer.customer.name}</p>
-        <p>Token: {authCustomer.token} </p>
         </>
     )
 
