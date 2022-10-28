@@ -3,7 +3,7 @@ import React from "react";
 import { useCustomerCreator } from "./hooks/useCustomerCreator";
 
 export const Customer = () => {
-    const { handleChange, save, createdAccount} = useCustomerCreator()
+    const { handleChange, _save, createdAccount} = useCustomerCreator()
 
     const customerJSX = createdAccount && (
         <p>
@@ -22,7 +22,7 @@ export const Customer = () => {
                 <br />
                 <input type="password" placeholder="password" name="password" onChange={handleChange}/>
                 <br />
-                <button type="submit" onClick={save}>Save
+                <button type="submit" onClick={_save}>Save
                 </button>
         </h1>
                 {customerJSX}

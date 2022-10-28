@@ -22,8 +22,7 @@ export const useCustomerCreator = () => {
         variables: {
             account: form
         }
-    })
-}
+    })}
 
   return {
     handleChange,
