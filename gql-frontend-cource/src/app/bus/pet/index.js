@@ -13,7 +13,6 @@ export const Pet = () => {
     <>
       {/* <Profile/> */}
       <Zxc />
-      <h1>Pet</h1>
       {/* <Counter /> */}
       {/* <List/>
       <SpecialList/>

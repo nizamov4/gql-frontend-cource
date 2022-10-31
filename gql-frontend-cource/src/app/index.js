@@ -12,8 +12,8 @@ import { client } from './init/client';
 export const App = () => {
   return (
     <ApolloProvider client={client}>
-      <Login />
       <Customer />
+      <Login />
       <Pet />
     </ApolloProvider>
   )

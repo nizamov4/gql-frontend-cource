@@ -28,11 +28,17 @@ export const Zxc = () => {
 
   return (
     <>
-      <h1 style={{position: 'absolute', left: '20%', top: '10%'}}>Checkin</h1>
-      <button onClick={() => checkIn('C-1')}>CheckIn</button>
-      {petJSX}
-      {errorsJSX}
+      <h1 style={{position: 'absolute', left: '25%', top: '5%'}}>Checkin</h1>
+      <br />
+    <button onClick={() => checkIn('C-1')}
+      style={{position: 'absolute', top: '15%', left: '25%'}}>
+        CheckIn
+        </button>
+        <div style={{position: 'absolute', left: '25%', top: '17%'}}>
       {errorJSX}
+      {petJSX}
+        </div>
+      {errorsJSX}
     </>
   )
 };

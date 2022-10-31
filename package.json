@@ -2,6 +2,8 @@
   "dependencies": {
     "@apollo/client": "^3.7.0",
     "graphql": "^15.8.0",
-    "graphql.macro": "^1.4.2"
+    "graphql-ws": "^5.11.2",
+    "graphql.macro": "^1.4.2",
+    "subscriptions-transport-ws": "^0.11.0"
   }
 }
