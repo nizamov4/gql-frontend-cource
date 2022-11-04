@@ -8,92 +8,59 @@ import { WebSocketLink } from '@apollo/client/link/ws'
 import { createClient } from 'graphql-ws';
 
 const root = 'https://funded-pet-library.moonhighway.com/'
+
 //GraphQl server
 const cache = new InMemoryCache();
-const uri = `https://${root}`
-const link = new HttpLink ({uri})
 
 //Web-Socket
-/* const wsLink = new GraphQLWsLink({
-    uri: `ws://${root}subscriptions`,
-    options: {
-        reconnect: true
-    }
-}) */
-
-/* const wsLink = new GraphQLWsLink(
-    new SubscriptionClient(`ws://${root}subscriptions`, {
-        options: {
-            reconnect: true
-        }
-    })
-) */
-
-/* const wsLink = new GraphQLWsLink(
-    new SubscriptionClient(`ws://${root}subscriptions`, {
-        options: {
-            reconnect: true
-        }
-    })
-); */
-
-/* const wsLink  = new GraphQLWsLink (createClient({
-    new SubscriptionClient(`ws://${root}subscriptions`,
-    options: {
-        reconnect: true
-    },
-  })); */
-
-
-/* const wsLink = new GraphQLWsLink({
-    uri: `ws://${root}subscriptions`,
-    options: {
-        reconnect: true
-    },
-}) */
-
 const wsLink = new GraphQLWsLink(createClient({
-    url: 'ws://funded-pet-library.moonhighway.com/subscriptions',
-  }));
 
-//Auth передаю токен
-const authLink = setContext ((_, {headers}) => {
-    const token = localStorage.getItem('token', )
-
-    return {
-        headers: {
-            ...headers,
-            authorization: token ? `Bearer ${token}`:'',
+    url: 'wss://funded-pet-library.moonhighway.com/subscriptions',
+    connectionParams: {
+        authToken: async () => {
+            setContext ((_, {headers}) => {
+                const token = localStorage.getItem('token', )
+                return {
+                    headers: {
+                        ...headers,
+                        authorization: token ? `Bearer ${token}`:'',
+                    }
+                }
+            })
         }
-    }
-})
+    },
+}));
 
-const wrappedHttpLink = authLink.concat(link)
+  //httpLink
+  const httpLink = new HttpLink({
+    uri: 'http://https://funded-pet-library.moonhighway.com/graphql'
+  });
 
-const splitLink  = split(
-    ({ query  }) => {
+// The split function takes three parameters:
+//
+// * A function that's called for each operation to execute
+// * The Link to use for an operation if the function returns a "truthy" value
+// * The Link to use for an operation if the function returns a "falsy" value
+
+
+  const splitLink = split(
+    ({ query }) => {
       const definition = getMainDefinition(query);
       return (
-   definition.kind  === 'OperationDefinition' &&
-   definition.operation  === 'subscription'
+        definition.kind === 'OperationDefinition' &&
+        definition.operation === 'subscription'
       );
     },
-   wsLink,
-   authLink,
+    wsLink,
+    httpLink,
   );
 
 
-/* const Link = split.apply(({query})=> {
-    const definition = getMainDefinition(query)
-    return (
-        definition.kind === 'OperationDefinition' &&
-        definition.operation === 'subscription'
-    )
-}, wsLink, wrappedHttpLink) */
+//Auth передаю токен
 
 
 
 export const client = new ApolloClient({
     cache: cache,
-    splitLink
+    link: splitLink
 });
